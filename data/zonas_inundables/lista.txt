@@ -1,0 +1,11 @@
+lista.txt
+wgs_carreteras_expuestas.geojson
+wgs_car_urbana_expuesta.geojson
+wgs_edificaciones_generales_expuestas.geojson
+wgs_edificaciones_religiosas_expuestas.geojson
+wgs_ferrocarril_alt_vel_expeusto.geojson
+wgs_infraestructura_transporte_expuesta.geojson
+wgs_instalaciones_deportivas_expuestas.geojson
+wgs_instalaciones_industriales.geojson
+wgs_instalaciones_recurrentes.geojson
+wgs_periodos_retorno.geojson

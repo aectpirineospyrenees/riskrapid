@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="riskrapid.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-sidebar-v2@3.1.0/css/leaflet-sidebar.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>RISKRAPID</title>
+</head>
+<body>
+    <header class="header"><h1>RISKRAPID</h1></header>
+    <div id="contenedor-mapa"></div>
+    <!-- SCRIPTS EXTERNOS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-sidebar-v2@3.1.0/js/leaflet-sidebar.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.js"></script>
+<script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+
+
+<div id="leyenda-exposicion" class="leyenda">
+  <h4>Exposición / Exposition</h4>
+  <div class="item" data-codigo="1"><span class="color" style="background:#d73027"></span> Muy alta exposición / Très haute exposition</div>
+  <div class="item" data-codigo="2"><span class="color" style="background:#fc8d59"></span> Alta exposición / Haute exposition</div>
+  <div class="item" data-codigo="3"><span class="color" style="background:#fee08b"></span> Exposición media / Exposition moyenne</div>
+  <div class="item" data-codigo="4"><span class="color" style="background:#91cf60"></span> Baja exposición / Faible exposition</div>
+</div>
+
+<script src="riskrapid.js"></script>
+</body>
+</html>

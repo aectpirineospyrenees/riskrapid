@@ -1,0 +1,136 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita barras de desplazamiento */
+}
+
+#contenedor-mapa {
+    height: calc(100vh - 80px); /* Resta la altura del encabezado */
+    width: 100vw; /* Asegúrate de que ocupe todo el ancho */
+    position: absolute; /* Posición absoluta para ocupar el espacio */
+    top: 80px; /* Desplázalo hacia abajo para dejar espacio al encabezado */
+    left: 0;
+}
+
+/*====CONFIGURACION DEL HEADER====*/
+
+    .header {
+        height: 60px; /* Altura fija del encabezado */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #d0def4;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Asegúrate de que esté por encima del mapa */
+        position: relative;
+        }
+    
+    .header h1 {
+        font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+        font-weight: 600;                       /* Negrita */
+        font-size: 2rem;                        /* Tamaño grande y legible */
+        letter-spacing: 1px;                    /* Espaciado entre letras */
+        color: #071853;                            /* Color moderno y neutro */
+        margin: 0;                               /* Quita márgenes predeterminados */
+        }
+        
+    .logos {
+        display: flex;
+        gap: 10px;
+    }       
+
+    .logo {
+        height: 60px;     /* altura fija */
+        width: auto;      /* ancho se ajusta automáticamente */
+        object-fit: contain; /* asegura que no se deforme */
+        display: block;   /* elimina posibles espacios extra de línea */
+    }
+
+    .logos img:hover {
+        transform: scale(1.1);         /* Efecto al pasar el mouse */
+        }
+
+/*====CONFIGURACION ICONOS DE CLUSTER Y MARKERS====*/
+.custom-cluster {
+    position: relative;
+    width: 25px;  /* un poco más grande que los markers */
+    height: 25px;
+    display: inline-block;
+}
+
+.custom-cluster .cluster-icon {
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+.custom-cluster .cluster-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgb(120, 158, 207);
+    color: white;
+    font-weight: bold;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 1px black;
+}
+
+  /* Leyenda de exposición */
+.leyenda {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.95);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-family: sans-serif;
+  z-index: 1000;
+}
+
+.leyenda h4 {
+  margin:0 0 8px 0;
+  font-size:16px;
+  text-align:center;
+}
+
+.leyenda .item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 4px 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.leyenda .item:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.leyenda .item.inactive {
+  opacity: 0.4;
+}
+
+.leyenda .color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+
+  /* Popups */
+  .popup-table { border-collapse: collapse; font-size: 13px; }
+  .popup-table th { text-align:center; font-weight:bold; }
+  .popup-table td, .popup-table th { padding:2px 4px; border:1px solid #ddd; }
+
+  
