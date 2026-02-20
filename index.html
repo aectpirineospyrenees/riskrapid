@@ -3,40 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="riskrapid.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>RISKRAPID</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-sidebar-v2@3.1.0/css/leaflet-sidebar.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.css" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>RISKRAPID</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-sidebar-v2/css/leaflet-sidebar.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="riskrapid.css">
 </head>
 <body>
     <header class="header"><h1>RISKRAPID</h1></header>
-    <div id="contenedor-mapa"></div>
+
+    <div id="sidebar" class="leaflet-sidebar collapsed">
+        <!-- TABS -->
+        <div class="leaflet-sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fas fa-home"></i></a></li>
+                <li><a href="#hidrografia" role="tab"><i class="fas fa-water"></i></a></li>
+                <li><a href="#sensores" role="tab"><i class="fas fa-tower-broadcast"></i></a></li>
+                <li><a href="#infraestructura" role="tab"><i class="fas fa-industry"></i></a></li>
+                <li><a href="#exposicion" role="tab"><i class="fas fa-triangle-exclamation"></i></a></li>
+                <li><a href="#servicios" role="tab"><i class="fas fa-hospital"></i></a></li>
+                <li><a href="#contact" role="tab"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div class="leaflet-sidebar-content">
+            <!-- HOME -->
+            <div class="leaflet-sidebar-pane" id="home">
+                <h1 class="leaflet-sidebar-header">
+                    RISKRAPID
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <p>Esta plataforma permite visualizar y analizar algunos de los elementos básicos para la prevención de riesgos por inundaciones. Entre ellos encontramos:</p>
+                <ul>
+                    <li><strong>Hidrografía</strong>: Cuencas hidrográficas de los principales cauces</li>
+                    <li><strong>Sensores</strong>: Estaciones de medición de caudal, nivel y precipitaciones.</li>
+                    <li><strong>Infraestructura</strong>: Elementos estructurales de los principales cauces: presas y centrales hidroeléctricas.</li>
+                    <li><strong>Exposición</strong>: Infraestructuras expuestas a diferentes niveles de riesgo de inundación.</li>
+                    <li><strong>Servicios</strong>: Servicios esenciales sanitarios y de emergencia</li>
+                </ul>
+            </div>
+
+            <!-- PANELES DE CAPAS -->
+            <div class="leaflet-sidebar-pane" id="hidrografia">
+                <h1 class="leaflet-sidebar-header">Hidrografía <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h2> Capas disponibles:</h2>
+                <div id="panel-hidrografia"></div>
+            </div>
+            <div class="leaflet-sidebar-pane" id="sensores">
+                <h1 class="leaflet-sidebar-header">Sensores <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <p>Datos provenientes de:</p>
+                <ul>
+                    <li><strong>Agencia Estatal de Meteorología (AEMET)</strong></li>
+                    <li><strong>Confederación Hidrográfica del Ebro (CHE)</strong></li>
+                    <li><strong>Comunidad Foral de Navarra</strong></li>
+                    <li><strong>Sistema Automático de Información Hidrológica (SAIH)</strong></li>
+                </ul>
+                <p>En algunas estaciones se dispone de enlace para observar los datos a tiempo real</p>
+                <h2> Capas disponibles:</h2>
+                <div id="panel-sensores"></div>
+            </div>
+            <div class="leaflet-sidebar-pane" id="infraestructura">
+                <h1 class="leaflet-sidebar-header">Infraestructura <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h2> Capas disponibles:</h2>
+                <div id="panel-infraestructura"></div>
+            </div>
+          <div class="leaflet-sidebar-pane" id="exposicion">
+            <h1 class="leaflet-sidebar-header">
+                Exposición <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+
+            <p>Esta sección muestra infraestructuras expuestas a diferentes niveles de riesgo de inundación.</p>
+
+            <p>Los datos provienen de:</p>
+            <ul>
+                <li><strong>Base Topográfica Nacional (BTN)</strong></li>
+                <li><strong>Zonificación de zonas inundables</strong> (CHE y Comunidad Foral de Navarra)</li>
+            </ul>
+
+            <p>Esta información es orientativa y no debe considerarse definitiva.</p>
+
+            <h2 class="subtitulo">Capas de Exposición</h2>
+            <p>Seleccione las capas que desea visualizar en el mapa:</p>
+            <div id="panel-exposicion"></div>
+
+            <h2>Filtro de Exposición</h2>
+            <p>Seleccione el nivel de exposición para ocultar/mostrar sus elementos:</p>
+            <div id="leyenda-exposicion" class="leyenda">
+                <div class="item" data-codigo="1">Alta Exposición</div>
+                <div class="item" data-codigo="2">Media-Alta Exposición</div>
+                <div class="item" data-codigo="3">Media-Baja Exposición</div>
+                <div class="item" data-codigo="4">Baja Exposición</div>
+            </div>
+        </div>
+
+            <div class="leaflet-sidebar-pane" id="servicios">
+                <h1 class="leaflet-sidebar-header">Servicios <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h2> Capas disponibles:</h2>
+                <div id="panel-servicios"></div>
+            </div>
+
+            <!-- CONTACTO -->
+            <div class="leaflet-sidebar-pane" id="contact">
+                <h1 class="leaflet-sidebar-header">Contacto <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <p>Información de contacto.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="contenedor-mapa" style="width:100%; height:90vh;"></div>
+
     <!-- SCRIPTS EXTERNOS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-sidebar-v2@3.1.0/js/leaflet-sidebar.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-<script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.js"></script>
-<script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-sidebar-v2/js/leaflet-sidebar.min.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
-
-<div id="leyenda-exposicion" class="leyenda">
-  <h4>Exposición / Exposition</h4>
-  <div class="item" data-codigo="1"><span class="color" style="background:#d73027"></span> Muy alta exposición / Très haute exposition</div>
-  <div class="item" data-codigo="2"><span class="color" style="background:#fc8d59"></span> Alta exposición / Haute exposition</div>
-  <div class="item" data-codigo="3"><span class="color" style="background:#fee08b"></span> Exposición media / Exposition moyenne</div>
-  <div class="item" data-codigo="4"><span class="color" style="background:#91cf60"></span> Baja exposición / Faible exposition</div>
-</div>
-
-<script src="riskrapid.js"></script>
+    <!-- TU JS -->
+    <script src="riskrapid.js"></script>
 </body>
 </html>

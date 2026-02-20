@@ -6,11 +6,11 @@ html, body {
 }
 
 #contenedor-mapa {
-    height: calc(100vh - 80px); /* Resta la altura del encabezado */
+    height: calc(100vh - 70px); /* Ajusta la altura del mapa según el header */
     width: 100vw; /* Asegúrate de que ocupe todo el ancho */
     position: absolute; /* Posición absoluta para ocupar el espacio */
-    top: 80px; /* Desplázalo hacia abajo para dejar espacio al encabezado */
-    left: 0;
+    top: 70px; /* Desplázalo hacia abajo según la altura del header */
+    left: 0; /* Asegúrate de que comience desde el borde izquierdo */
 }
 
 /*====CONFIGURACION DEL HEADER====*/
@@ -83,54 +83,104 @@ html, body {
     box-shadow: 0 0 1px black;
 }
 
-  /* Leyenda de exposición */
-.leyenda {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.95);
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  font-family: sans-serif;
-  z-index: 1000;
-}
-
-.leyenda h4 {
-  margin:0 0 8px 0;
-  font-size:16px;
-  text-align:center;
-}
-
-.leyenda .item {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin: 4px 0;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: background 0.2s;
-}
-
-.leyenda .item:hover {
-  background: rgba(0,0,0,0.05);
-}
-
-.leyenda .item.inactive {
-  opacity: 0.4;
-}
-
-.leyenda .color {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  margin-right: 8px;
-}
-
 
   /* Popups */
   .popup-table { border-collapse: collapse; font-size: 13px; }
   .popup-table th { text-align:center; font-weight:bold; }
   .popup-table td, .popup-table th { padding:2px 4px; border:1px solid #ddd; }
 
-  
+
+
+/* ================= CHECKBOX / TOGGLE ================= */
+/* ================= CHECKBOX / MODERNO ================= */
+.checkbox-item {
+    margin-bottom: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    display: none; /* ocultamos el input real */
+}
+
+.checkbox-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 28px; /* espacio para el círculo */
+    font-size: 14px;
+    color: #333;
+    user-select: none;
+}
+
+/* círculo vacío */
+.checkbox-item label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+/* relleno cuando está marcado */
+.checkbox-item input:checked + label::before {
+    background: #007bff;
+    border-color: #007bff;
+}
+
+/* ================= LEYENDA DE EXPOSICIÓN ULTRA MINIMALISTA ================= */
+#sidebar #exposicion #leyenda-exposicion {
+    position: relative !important;
+    margin: 10px 0 0 0;
+    padding: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+#sidebar #exposicion #leyenda-exposicion h2 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #071853;
+}
+
+#sidebar #exposicion #leyenda-exposicion .item {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    padding: 2px 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition: opacity 0.2s ease;
+}
+
+#sidebar #exposicion #leyenda-exposicion .item:hover {
+    opacity: 0.8;
+}
+
+#sidebar #exposicion #leyenda-exposicion .item.inactive {
+    opacity: 0.4;
+}
+
+#sidebar #exposicion #leyenda-exposicion .item::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+#sidebar #exposicion #leyenda-exposicion .item[data-codigo="1"]::before { background-color: #d73027; }
+#sidebar #exposicion #leyenda-exposicion .item[data-codigo="2"]::before { background-color: #fc8d59; }
+#sidebar #exposicion #leyenda-exposicion .item[data-codigo="3"]::before { background-color: #fee08b; }
+#sidebar #exposicion #leyenda-exposicion .item[data-codigo="4"]::before { background-color: #91cf60; }
