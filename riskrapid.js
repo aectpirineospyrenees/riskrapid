@@ -157,13 +157,13 @@ const capasVectoriales = [
 
 // Capas tipo cluster
 const capasClusterData = [
-    { url:"data/estaciones_aforo_procesado.geojson", nombre:"Estaciones de Aforo", grupo:"Sensores", campos:{ "propiedad":{nombre:"Propiedad"}, "URLDATOS":{nombre:"Enlace Datos", tipo:"link", alias:"Ver datos"} }, titulo:"nombre", icon:"icons/aforo.svg" },
+    { url:"data/estaciones_aforo_procesado.geojson", nombre:"Estaciones de Aforo España", grupo:"Sensores", campos:{ "propiedad":{nombre:"Propiedad"}, "URLDATOS":{nombre:"Enlace Datos", tipo:"link", alias:"Ver datos"} }, titulo:"nombre", icon:"icons/aforo.svg" },
     { url:"data/centrales_hidroelectricas_che.geojson", nombre:"Centrales Hidroeléctricas", grupo:"Infraestructura", campos:{ "LRS_NOMBRE":{nombre:"Nombre"}, "URLSIT":{nombre:"Enlace Sitio", tipo:"link", alias:"Ver sitio"} }, titulo:"Central Hidroeléctrica", icon:"icons/central_hidorelectrica.svg" },
     { url:"data/estaciones_pluviometricas.geojson", nombre:"Estaciones Meteorológicas", grupo:"Sensores", campos:{ "nombre":{nombre:"Nombre"}, "url_estacion":{nombre:"Enlace Estación", tipo:"link", alias:"Ver estación"} }, titulo:"Estación meteorológica", icon:"icons/lluvia.svg" },
     { url:"data/embalses.geojson", nombre:"Embalses", grupo:"Infraestructura", campos:{ "LRS_NOMBRE":{nombre:"Nombre"}, "URLSIT":{nombre:"Enlace", tipo:"link"} }, titulo:"Embalse", icon:"icons/embalse.svg" },
     { url:"data/bomberos.geojson", nombre:"Estaciones de Bomberos", grupo:"Servicios", campos:{ "nombre_centro":{nombre:"Nombre"}, "direccion":{nombre:"Dirección / Adresse"} }, titulo:"Parque de bomberos", icon:"icons/bomberos.svg" },
     { url:"data/establecimientos_sanitarios.geojson", nombre:"Establecimientos Sanitarios", grupo:"Servicios", campos:{ "nombre_centro":{nombre:"Nombre"}, "direccion":{nombre:"Dirección"}, "clase_1":{nombre:"Clase"}, "telefono":{nombre:"Teléfono"} }, titulo:"Establecimiento Sanitario", icon:"icons/hospital.svg" },
-    { url:"data/estaciones_pirineos_actuales.geojson", nombre:"Estaciones aforo Francia", grupo:"Sensores", campos:{ "code_estacion": {nombre: "Código de estación:"}, "nombre": {nombre: "Nombre Estación"}, "rio": {nombre: "Río"}, "nivel_m": {nombre: "Nivel medio (m)"}, "caudal_m3s": {nombre: "Caudal (m3/s)"}, "fecha_obs": {nombre: "Fecha y hora de la última actualización"}}, titulo:"Estaciones de aforo Francesas", icon:"icons/aforo.svg" }
+    { url:"data/estaciones_aforo_francia.geojson", nombre:"Estaciones aforo Francia", grupo:"Sensores", campos:{ "codigo_estacion": {nombre: "Código de estación:"}, "curso_agua": {nombre: "Río"}, "url_datos": {nombre: "Enlace a datos", tipo:"link", alias:"Ver datos"}}, titulo:"nombre_estacion", icon:"icons/aforo.svg" }
 ];
 
 // ================= CAPAS DE EXPOSICIÓN =================
